@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Photostream
+    = csrf_meta_tags
+    = render 'common/fonts'
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    - if content_for? :head
+      = yield :head
+  %body{class: "#{params[:controller].split('/').join(' ')} #{params[:action]}#{@_body_classes ? (' ' + @_body_classes.join(' ')) : ''}"}
+    = render 'common/navbar'
+    .container.main-container
+      = alerts
+
+      - if content_for? :content
+        = yield :content
+      - else
+        = yield
+
+    - if content_for? :outside_container
+      = yield :outside_container
+
+    #footer.footer.text-center
+      :plain
+        Site made with ZPhotostream - fork the project <a href="https://github.com/nzaillian/zphotostream" target="_blank">here</a>!

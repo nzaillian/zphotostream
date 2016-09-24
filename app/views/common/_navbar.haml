@@ -1,0 +1,22 @@
+%nav.navbar.main-nav
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#primary-nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.navbar-brand.z-logo{:href => root_path} 
+        Photostream
+
+    - if user_signed_in?
+      #primary-nav-collapse.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+
+        %ul.nav.navbar-nav.navbar-right
+          %li{class: ('active' if controller?('admin/photos'))}
+            = link_to admin_photos_path do
+              %i.fa.fa-camera.icon
+              Manage Photos
+          %li
+            = link_to "Sign Out", destroy_user_session_path, method: :delete              

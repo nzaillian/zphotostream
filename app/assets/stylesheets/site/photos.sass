@@ -1,0 +1,67 @@
+.photos
+  @media (max-width: 844px)
+    padding: 0 2.5px
+    
+  .photo
+    display: block
+    padding: 2.5px
+
+    img
+      width: 100%
+
+.photo-detail-page
+  .photo-detail-box
+    height: calc(100vh - 93px)
+    width: 100%
+    position: relative
+
+  .photo-detail-link
+    display: block
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: center
+
+.photo-meta
+  margin: 12px auto 32px auto
+  max-width: 500px
+  font-size: 13px
+  text-align: center
+
+.photo-caption
+  font-style: italic
+  margin-bottom: 10px
+
+.photo-description
+
+
+.carousel-link
+  display: block
+  position: absolute
+  font-size: 30px
+  padding: 0 15px
+  top: 76px
+  height: calc(100vh - 77px)
+  color: #000
+  z-index: 10
+  opacity: 0.4
+
+  .icon
+    top: 50%
+    margin-top: -58px
+    position: relative
+    display: block
+
+  &, &:focus, &:active, &:visited
+    &:hover
+      opacity: 1
+      text-decoration: none
+
+  &.next
+    right: 0
+    padding-left: 40px
+
+  &.prev
+    left: 0
+    padding-right: 40px

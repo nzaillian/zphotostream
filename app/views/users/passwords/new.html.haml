@@ -1,0 +1,13 @@
+.row
+  .col-md-4.col-md-offset-4
+    .user-form-wrap
+      %h2.box-title.text-center Forgot your password?
+      .ui-box.user-form-box.password-form-wrap
+        = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+          = f.error_notification
+          .form-inputs
+            = f.input :email, required: true, autofocus: true
+          .form-actions
+            = f.button :submit, "Send Password Reset Instructions", class: "btn btn-success"
+
+    = render "users/shared/links"

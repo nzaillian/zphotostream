@@ -1,0 +1,28 @@
+%nav.navbar.admin-nav.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle.collapsed{"aria-expanded" => "false", "data-target" => "#admin-nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.sr-only Toggle navigation
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      
+    #admin-nav-collapse.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        %li{class: ('active' if controller?('admin/photos'))}
+          = link_to new_admin_photo_path do
+            Upload Photos
+
+%ul.admin-photos-grid.js-admin-photos-grid.list-unstyled
+  = render @photos
+
+.clearfix
+
+.pagination-wrap.text-center
+  = paginate @photos  
+
+:coffee
+  window.base_image_position = #{@photos.first.try(:position)}
+  window.position_update_url = '#{positions_admin_photos_path(format: :json)}'
+
+  $ -> new App.Views.Admin.Photos.Index                    

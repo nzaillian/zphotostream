@@ -1,0 +1,3 @@
+- cache photo do
+  = link_to photo, class: 'photo col-sm-6 no-pad', id: "photo_#{photo.id}" do
+    = image_tag photo.image.url(:preview)

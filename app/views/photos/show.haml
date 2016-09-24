@@ -1,0 +1,28 @@
+- content_for :outside_container do
+  - cache [Photo.maximum(:updated_at), @photo, 'links'] do
+    - if prev_photo_for(@photo)
+      = link_to prev_photo_for(@photo), class: 'carousel-link prev' do
+        %i.fa.fa-chevron-left.icon
+
+    - if next_photo_for(@photo)
+      = link_to next_photo_for(@photo), class: 'carousel-link next' do
+        %i.fa.fa-chevron-right.icon
+
+- cache [Photo.maximum(:updated_at), @photo, 'photo'] do
+  .photo-detail-page
+    .photo-detail-box
+      = link_to '', @photo.image.url, class: 'photo-detail-link', target: '_blank', style: "background-image: url(#{@photo.image.url(:xxl)});", data: {"photo-id" => @photo.id}
+
+    .photo-meta
+      - if @photo.caption.present?
+        .photo-caption= raw @photo.caption
+      - if @photo.description.present?
+        .photo-description= raw @photo.description        
+      - if site_config[:display_dates] && @photo.display_date.present?
+        .photo-display-date
+          %span.uploaded Uploaded
+          %span.date= "#{@photo.display_date.strftime(site_config[:display_date_format])}"
+
+:coffee
+  $ -> new App.Views.Photos.Show    
+

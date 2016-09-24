@@ -1,0 +1,22 @@
+.row
+  .col-md-8.col-md-offset-2
+    = simple_form_for [:admin, @photo] do |f|
+      .thumbnail.thumbnail-large
+        = image_tag @photo.image.xl
+
+      = f.input :title, as: :string
+      = f.input :caption, as: :string
+      = f.input :description
+      = f.input :hidden, as: :boolean, label: 'Hide this photo'
+      = f.input :position
+      - if site_config[:display_dates]
+        = f.input :display_date
+
+      = f.button :submit, "Save Settings", class: 'btn btn-default pull-right'
+
+      = link_to nil, href: admin_photo_path(@photo),
+      data: {confirm: "Are you sure you want to delete this photo?", method: :delete}, class: "delete-link" do
+        %i.fa.fa-trash-o
+        Delete Photo
+        
+      .clearfix

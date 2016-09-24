@@ -1,0 +1,1 @@
+Rails.application.config.site_config = YAML::load(File.read("#{Rails.root}/site_config.yml"))["site"].with_indifferent_access

@@ -1,0 +1,14 @@
+- @_body_classes ||= []
+- @_body_classes << 'layout-admin'
+
+- content_for :head do
+  = javascript_include_tag 'admin'
+  = stylesheet_link_tag 'admin'
+
+- content_for :content do
+  - if content_for? :admin_content
+    = yield :admin_content
+  - else
+    = yield
+
+= render template: '/layouts/application'

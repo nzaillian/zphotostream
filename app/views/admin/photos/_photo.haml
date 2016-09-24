@@ -1,0 +1,4 @@
+- cache ['admin', photo] do
+  %li.photo-wrap.js-photo-wrap{data: {id: photo.id}}
+    = link_to edit_admin_photo_path(photo), class: 'thumbnail photo' do
+      = image_tag photo.image.url(:preview)

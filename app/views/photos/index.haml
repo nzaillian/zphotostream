@@ -1,0 +1,8 @@
+- cache @photos do
+  .photos
+    - @photos.in_groups_of(2, false) do |group|
+      .row
+        = render group
+
+  .pagination-wrap.text-center
+    = paginate @photos
