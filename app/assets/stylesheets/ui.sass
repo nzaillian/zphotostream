@@ -60,3 +60,9 @@ html, body
   background-color: #f5f5f5
   line-height: 40px
   font-size: 13px  
+
+// to prevent horizontal scroll on mobile
+@media (max-width: $screen-sm-max)
+  html, body
+    width: 100%
+    overflow-x: hidden
