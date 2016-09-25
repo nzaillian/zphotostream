@@ -1,11 +1,11 @@
 - content_for :outside_container do
   - cache [Photo.maximum(:updated_at), @photo, 'links'] do
     - if prev_photo_for(@photo)
-      = link_to prev_photo_for(@photo), class: 'carousel-link prev' do
+      = link_to prev_photo_for(@photo), class: 'carousel-link prev js-prev-photo-link' do
         %i.fa.fa-chevron-left.icon
 
     - if next_photo_for(@photo)
-      = link_to next_photo_for(@photo), class: 'carousel-link next' do
+      = link_to next_photo_for(@photo), class: 'carousel-link next js-next-photo-link' do
         %i.fa.fa-chevron-right.icon
 
 - cache [Photo.maximum(:updated_at), @photo, 'photo'] do
