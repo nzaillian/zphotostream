@@ -101,6 +101,7 @@ GEM
     haml (4.0.7)
       tilt
     handles_sortable_columns (0.1.4)
+    highline (1.7.2)
     i18n (0.7.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
@@ -273,6 +274,7 @@ DEPENDENCIES
   friendly_id
   haml
   handles_sortable_columns
+  highline
   jbuilder (~> 2.5)
   jquery-fileupload-rails
   jquery-rails

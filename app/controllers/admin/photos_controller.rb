@@ -4,7 +4,7 @@ class Admin::PhotosController < Admin::BaseController
   before_action :find_photo, only: member_actions
 
   def index
-  @photos = current_user.photos.order(sortable_column_order || 'position DESC').page(params[:page]).per(50)
+    @photos = current_user.photos.order(sortable_column_order || 'position DESC').page(params[:page]).per(50)
   end
 
   def new

@@ -14,6 +14,6 @@ I'd like to keep this project pretty minimal but if you have contributions to ma
 
 # Setup/Development
 
-This really couldn't be a much more minimal or idiomatic Rails app. There is no job queue or similar external dependency to note. You can set it up for development with a simple `bin/rake db:create && bin/rake db:migrate` and run it with `bin/rails server`.
+This really couldn't be a much more minimal or idiomatic Rails app. There is no job queue or similar external dependency to note. You can set it up for development with a simple `bin/rake db:create && bin/rake db:migrate` and run it with `bin/rails server`. You can then create a user account from the command line by running `bin/rake zphotostream:setup`.
 
 For production you will want to have a look at the carrierwave.rb initializer and set the environment variables referenced there (you may end up dropping some of the options if they aren't necessary for your setup). You will also probably want to set memcached or redis as your app cache store.

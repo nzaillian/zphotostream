@@ -34,6 +34,8 @@ gem 'bootstrap-sass'
 
 gem 'font-awesome-rails'
 
+gem 'highline'
+
 gem 'carrierwave'
 
 gem 'carrierwave-ftp', require: 'carrierwave/storage/ftp/all'
