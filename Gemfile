@@ -54,7 +54,9 @@ gem 'handles_sortable_columns'
 
 gem 'dotenv'
 
-gem 'redis-rails'
+gem 'redis-rails', '5.0.2'
+
+gem 'redis-store', '1.4.1'
 
 group :development, :test do
   gem 'byebug', platform: :mri 
